@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129052512) do
+ActiveRecord::Schema.define(version: 20170129055714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170129052512) do
   end
 
   create_table "readings", force: :cascade do |t|
-    t.string   "device"
+    t.string   "device_uid"
     t.datetime "datetime"
     t.jsonb    "data"
     t.integer  "device_id"

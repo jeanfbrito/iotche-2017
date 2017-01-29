@@ -7,6 +7,7 @@ end
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.4'
 gem 'bootstrap-generators', '~> 3.3.4'
+gem 'record_tag_helper', '~> 1.0' #necessario mas precisa revisao
 gem 'simple_form'
 gem "highcharts-rails"
 

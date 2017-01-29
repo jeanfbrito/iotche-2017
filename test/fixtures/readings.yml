@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  device: MyString
-  datetime: 2017-01-29 05:25:12
+  device_uid: MyString
+  datetime: 2017-01-29 05:57:14
   data: 
   device: one
 
 two:
-  device: MyString
-  datetime: 2017-01-29 05:25:12
+  device_uid: MyString
+  datetime: 2017-01-29 05:57:14
   data: 
   device: two

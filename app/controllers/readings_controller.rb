@@ -1,4 +1,5 @@
 class ReadingsController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
   before_action :set_reading, only: [:show, :edit, :update, :destroy]
 
   # GET /readings
@@ -25,6 +26,7 @@ class ReadingsController < ApplicationController
   # POST /readings.json
   def create
     @reading = Reading.new(reading_params)
+    @reading.device = Device.find_by(uid: reading_params[:device_uid])
 
     respond_to do |format|
       if @reading.save
@@ -69,6 +71,6 @@ class ReadingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reading_params
-      params.require(:reading).permit(:device, :datetime, :data, :device_id)
+      params.require(:reading).permit(:device_uid, :datetime, :data, :device_id)
     end
 end

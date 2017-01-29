@@ -10,7 +10,7 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>Device</th>
+            <th>Device uid</th>
             <th>Datetime</th>
             <th>Data</th>
             <th>Device</th>
@@ -22,7 +22,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @readings) do |reading| %>
-            <td><%= reading.device %></td>
+            <td><%= reading.device_uid %></td>
             <td><%= reading.datetime %></td>
             <td><%= reading.data %></td>
             <td><%= reading.device %></td>

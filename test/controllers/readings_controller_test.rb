@@ -17,7 +17,7 @@ class ReadingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reading" do
     assert_difference('Reading.count') do
-      post readings_url, params: { reading: { data: @reading.data, datetime: @reading.datetime, device: @reading.device, device_id: @reading.device_id } }
+      post readings_url, params: { reading: { data: @reading.data, datetime: @reading.datetime, device_id: @reading.device_id, device_uid: @reading.device_uid } }
     end
 
     assert_redirected_to reading_url(Reading.last)
@@ -34,7 +34,7 @@ class ReadingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update reading" do
-    patch reading_url(@reading), params: { reading: { data: @reading.data, datetime: @reading.datetime, device: @reading.device, device_id: @reading.device_id } }
+    patch reading_url(@reading), params: { reading: { data: @reading.data, datetime: @reading.datetime, device_id: @reading.device_id, device_uid: @reading.device_uid } }
     assert_redirected_to reading_url(@reading)
   end
 
