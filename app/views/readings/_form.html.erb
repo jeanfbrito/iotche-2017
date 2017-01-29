@@ -1,0 +1,14 @@
+<%= simple_form_for(@reading) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :device %>
+    <%= f.input :datetime %>
+    <%= f.input :data %>
+    <%= f.association :device %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

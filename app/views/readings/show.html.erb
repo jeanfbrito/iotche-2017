@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to readings_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_reading_path(@reading), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show reading</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Device:</dt>
+  <dd><%= @reading.device %></dd>
+
+  <dt>Datetime:</dt>
+  <dd><%= @reading.datetime %></dd>
+
+  <dt>Data:</dt>
+  <dd><%= @reading.data %></dd>
+
+  <dt>Device:</dt>
+  <dd><%= @reading.device %></dd>
+
+</dl>

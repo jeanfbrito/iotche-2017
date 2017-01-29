@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_reading_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Reading
+  <% end %>
+  <h1>Listing readings</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Device</th>
+            <th>Datetime</th>
+            <th>Data</th>
+            <th>Device</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @readings) do |reading| %>
+            <td><%= reading.device %></td>
+            <td><%= reading.datetime %></td>
+            <td><%= reading.data %></td>
+            <td><%= reading.device %></td>
+            <td><%= link_to 'Show', reading %></td>
+        <td><%= link_to 'Edit', edit_reading_path(reading) %></td>
+        <td><%= link_to 'Destroy', reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
