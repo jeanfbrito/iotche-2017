@@ -18,3 +18,80 @@
   <dd><%= @device.name %></dd>
 
 </dl>
+
+<div id="temperature" style="width: 1070px; height: 230px;"></div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Device uid</th>
+            <th>Datetime</th>
+            <th>Data</th>
+            <th>Device</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @readings) do |reading| %>
+            <td><%= reading.device_uid %></td>
+            <td><%= reading.datetime %></td>
+            <td><%= reading.data %></td>
+            <td><%= reading.device %></td>
+            <td><%= link_to 'Show', reading %></td>
+        <td><%= link_to 'Edit', edit_reading_path(reading) %></td>
+        <td><%= link_to 'Destroy', reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function () {
+        Highcharts.setOptions({                                            // This is for all plots, change Date axis to local timezone
+                global : {
+                    timezoneOffset: 120
+                }
+            });
+
+        var chart = new Highcharts.Chart({
+
+            chart: {
+                renderTo: 'temperature',
+                type: 'spline',
+                zoomType: 'x'
+            },
+            plotOptions: {
+                series: {
+                    pointWidth: 30
+                }
+            },
+            tooltip: {
+                valueSuffix: '#',
+                xDateFormat: '%d/%m/%Y %H:%M:%S'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                type: 'datetime',
+                dateTimeLabelFormats: {
+                    minute: '%H:%M:%S'
+                }
+            },
+            series: [
+                {
+                    name: 'Water Level',
+                    data: <%= @readings.reverse.map do |measurement|
+                        [measurement.datetime.to_i * 1000,
+                        JSON.parse(measurement.data)["level"]]
+                      end.to_json.html_safe %>
+                }
+            ]
+        });
+          });
+</script>
