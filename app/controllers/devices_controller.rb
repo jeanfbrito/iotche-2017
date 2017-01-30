@@ -10,7 +10,7 @@ class DevicesController < ApplicationController
   # GET /devices/1
   # GET /devices/1.json
   def show
-    @readings = @device.readings
+    @readings = @device.readings.order(datetime: :desc).page params[:page]
   end
 
   # GET /devices/new
