@@ -18,8 +18,11 @@
   <dd><%= @device.name %></dd>
 
 </dl>
-
-<div class="container" id="temperature" style="//height: 230px;"></div>
+<div class="row">
+  <div class="col-md-12">  
+    <div id="temperature" style="//height: 230px;"></div>
+  </div>
+</div>
 
 <%= paginate @readings %>
 
